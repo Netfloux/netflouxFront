@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { Movie } from '../../modules/films/domain/entities/Movie';
 	import { InMemoryMovieRepository } from '../../modules/films/application/repositories/InMemoryMovieRepository';
+	import MovieCard from '../../modules/films/details/MovieCard.svelte';
+	import type { Movie } from '../../modules/films/domain/entities/Movie';
 
 	let films: Movie[] = [];
 	let filmRepository = InMemoryMovieRepository();
@@ -25,16 +26,16 @@
 	};
 </script>
 
-<ul class="flex gap-8">
-	{#each films as film}
-		<li class="flex gap-2">
-			<p>{film.title}</p>
+<ul class="flex gap-4 p-8">
+	{#each films as movie}
+		<li class="max-w-48">
+			<MovieCard {movie} />
 		</li>
 	{/each}
-</ul>
 
-{#if noMore}
-	<p>No more films to load</p>
-{:else}
-	<button on:click={loadMore}>Load More</button>
-{/if}
+	{#if noMore}
+		<p>No more films to load</p>
+	{:else}
+		<button on:click={loadMore}>Load More</button>
+	{/if}
+</ul>
