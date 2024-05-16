@@ -30,8 +30,8 @@
 			</div>
 		</div>
 		{#if tags.length > 0}
-			<div class="flex flex-wrap gap-1 mt-2 flex-nowrap overflow-scroll mr-8 no-scrollbar">
-				{#each [...tags, ...tags] as tag}
+			<div class="flex gap-1 mt-2 flex-nowrap overflow-scroll mr-8 no-scrollbar">
+				{#each tags as tag}
 					<span
 						class="bg-primary-light text-primary-dark text-xs border border-white rounded-full px-2"
 						>{tag.name}</span
