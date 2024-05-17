@@ -1,5 +1,5 @@
-import type { StrapiResponse } from '../../../adapters/entities/StrapiResponse';
-import { mapStrapiToDomainTag, type StrapiTag } from '../../../adapters/entities/StrapiTag';
+import type { StrapiResponse } from '../entities/StrapiResponse';
+import { mapStrapiToDomainTag, type StrapiTag } from '../entities/StrapiTag';
 import type { ITagRepository } from '../../domain/repositories/ITagRepository';
 
 export const StrapiTagRepository = (): ITagRepository => {
