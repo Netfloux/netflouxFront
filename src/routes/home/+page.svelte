@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Plus from '$lib/icons/Plus.svelte';
 	import { onMount } from 'svelte';
 	import { StrapiMovieRepository } from '../../modules/films/adapters/repositories/StrapiMovieRepository';
 	import { StrapiTagRepository } from '../../modules/films/adapters/repositories/StrapiTagRepository';
@@ -18,7 +19,7 @@
 
 	onMount(async () => {
 		loadMore();
-		tags = await tagRepository.getAll()
+		tags = await tagRepository.getAll();
 	});
 
 	const loadMore = async () => {
@@ -35,16 +36,24 @@
 	};
 </script>
 
-<ul class="flex gap-4 p-8">
-	{#each films as movie}
-		<li class="max-w-48">
-			<MovieCard {movie} tags={findTagsFor(movie)}/>
-		</li>
-	{/each}
+<div class="flex p-8 gap-4 items-center">
+	<ul class="flex gap-4">
+		{#each films as movie}
+			<li class="max-w-48">
+				<MovieCard {movie} tags={findTagsFor(movie)} />
+			</li>
+		{/each}
+	</ul>
 
 	{#if noMore}
 		<p>No more films to load</p>
 	{:else}
-		<button on:click={loadMore}>Load More</button>
+		<button
+			class="w-8 h-8 p-2 [&_svg]:h-full [&_svg]:w-full [&_path]:fill-white border border-white rounded-full cursor-pointer
+		[&_path]:hover:fill-primary hover:border-primary duration-200 transition-colors [&_path]:duration-200 [&_path]:transition-colors"
+			on:click={loadMore}
+		>
+			<Plus />
+		</button>
 	{/if}
-</ul>
+</div>
