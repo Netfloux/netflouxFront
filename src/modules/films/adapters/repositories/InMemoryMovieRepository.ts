@@ -1,6 +1,6 @@
 import type { Movie } from '../../domain/entities/Movie';
 import type { IMovieRepository } from '../../domain/repositories/IMovieRepository';
-import { fakeMovies } from '../data/FakeMovies';
+import { fakeMovies } from '../../application/data/FakeMovies';
 
 export interface InMemoryMovieRepository extends IMovieRepository {}
 

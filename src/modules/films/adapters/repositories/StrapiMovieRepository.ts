@@ -1,5 +1,5 @@
-import { mapStrapiToDomainMovie, type StrapiMovie } from '../../../adapters/entities/StrapiMovie';
-import type { StrapiResponse } from '../../../adapters/entities/StrapiResponse';
+import { mapStrapiToDomainMovie, type StrapiMovie } from '../entities/StrapiMovie';
+import type { StrapiResponse } from '../entities/StrapiResponse';
 import type { IMovieRepository } from '../../domain/repositories/IMovieRepository';
 
 export const StrapiMovieRepository = (): IMovieRepository => {

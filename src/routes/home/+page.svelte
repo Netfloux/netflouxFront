@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { StrapiMovieRepository } from '../../modules/films/application/repositories/StrapiMovieRepository';
-	import { StrapiTagRepository } from '../../modules/films/application/repositories/StrapiTagRepository';
+	import { StrapiMovieRepository } from '../../modules/films/adapters/repositories/StrapiMovieRepository';
+	import { StrapiTagRepository } from '../../modules/films/adapters/repositories/StrapiTagRepository';
 	import MovieCard from '../../modules/films/details/MovieCard.svelte';
 	import type { Movie } from '../../modules/films/domain/entities/Movie';
 	import type { Tag } from '../../modules/films/domain/entities/Tag';
