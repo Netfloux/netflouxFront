@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 	import '../app.css';
 	import type { LayoutServerData } from './$types';
 
@@ -9,7 +11,15 @@
 		goto('/auth/logout');
 	};
 
+	$: uri = $page.url.pathname;
 	$: loggedUser = data.loggedUser;
+	$: if (browser && uri === '/') {
+		if (loggedUser) {
+			goto('/home');
+		} else {
+			goto('/auth/login');
+		}
+	}
 </script>
 
 <div class="flex justify-between items-center px-8 py-2 bg-primary">

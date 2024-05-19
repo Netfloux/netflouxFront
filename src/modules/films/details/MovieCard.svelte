@@ -7,9 +7,9 @@
 	export let tags: Tag[] = [];
 	const maxDescriptionLength = 40;
 
-	$: displayedDescription =
+	$: displayedDescription = movie.description ?
 		movie.description.slice(0, maxDescriptionLength) +
-		(movie.description.length > maxDescriptionLength ? '...' : '');
+		(movie.description.length > maxDescriptionLength ? '...' : '') : '';
 </script>
 
 <div class="flex flex-col h-full hover:scale-110 duration-200 transition-transform cursor-pointer">
